@@ -1,0 +1,60 @@
+.list {
+    display: flex;
+}
+  
+input {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0 10px;
+    box-sizing: border-box;
+    
+}
+  
+button {
+    padding: 10px;
+    background-color: grey;
+    color: #fff;
+    border: none;
+}
+  
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+  
+#columns {
+    display: flex;
+    justify-content: center;
+}
+  
+.column {
+    width: 300px;
+    margin: 0 100px;
+}
+  
+.card {
+    background-color: #ffe4c4;
+    margin-bottom: 20px;
+    border: 1px solid black;
+}
+  
+.task {
+    padding: 10px;
+    background-color: #eee;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+  
+.task.done {
+    background-color: #f0b979;
+    color: #fff;
+}
+
+form{
+    width: 200px;
+
+}
+
+body{
+    background-color: bisque;
+}
