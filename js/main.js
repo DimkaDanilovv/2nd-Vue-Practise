@@ -75,5 +75,72 @@ Vue.component("list", {
 
         }
 
-    }
+    },
+    mounted(){
+        if (localStorage.getItem('allColumns')) {
+              try {
+                this.allColumns = JSON.parse(localStorage.getItem('allColumns'));
+                this.column1 = this.allColumns[0]
+                this.column2 = this.allColumns[1]
+                this.column3 = this.allColumns[2]
+                this.blockOne = this.allColumns[3]
+              } catch(e) {
+                localStorage.removeItem('allColumns');
+              }
+        }
+},
+watch:{
+    column1(){
+          this.allColumns = [this.column1,this.column2,this.column3, this.blockOne]
+          const parsed = JSON.stringify(this.allColumns);
+          localStorage.setItem('allColumns', parsed);
+    },
+    column2(){
+          allColumns = [this.column1, this.column2, this.column3, this.blockOne]
+          const parsed = JSON.stringify(this.allColumns);
+          localStorage.setItem('allColumns', parsed);
+    },
+    column3(){
+          allColumns = [this.column1, this.column2, this.column3, this.blockOne]
+          const parsed = JSON.stringify(this.allColumns);
+          localStorage.setItem('allColumns', parsed);
+    },
+},
+methods:{
+    onSubmit() {
+        this.errors = [];
+        this.points = [];
+    
+        if (this.point1) this.points.push([this.point1, false]);
+        if (this.point2) this.points.push([this.point2, false]);
+        if (this.point3) this.points.push([this.point3, false]);
+        if (this.point4) this.points.push([this.point4, false]);
+        if (this.point5) this.points.push([this.point5, false]);
+    
+        if (this.points.length < 3) this.errors.push("Должно быть заполнено от 3 пунктов");
+        if (!this.name) this.errors.push("Не введён заголовок");
+        if (this.column1.length >= 3) this.errors.push("Достигнуто максимальное число карточек");
+        if (this.blockOne) this.errors.push("Второй столбец заполнен");
+    
+        if (this.errors.length === 0) {
+            let info = {
+                name: this.name,
+                points: this.points,
+                card_id: this.card_id,
+                count_of_checked: 0,
+            };
+            this.card_id += 1;
+            this.column1.push(info);
+        }
+    },
+}
 }) 
+
+let app = new Vue({
+    el: "#app",
+    data: {
+    },
+    methods: {
+
+    },
+});
