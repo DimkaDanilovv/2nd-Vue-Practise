@@ -5,22 +5,22 @@ Vue.component("list", {
     <ul  id="columns">
     <div class="form">
 <form @submit.prevent="onSubmit">
-    <label for="name"></label>
+    <label for="name">Заголовок (обязательно)</label>
     <input type="text" id="name" v-model="name" placeholder="Введите заголовок...">
 
-    <label for="point1"></label> 
+    <label for="point1">подзаголовок</label> 
     <input type="text" id="point1" v-model="point1" placeholder="Введите подзаголовок...">
 
-    <label for="point2"></label>
+    <label for="point2">подзаголовок</label>
     <input type="text" id="point2" v-model="point2" placeholder="Введите подзаголовок...">
 
-    <label for="point3"></label>
+    <label for="point3">подзаголовок</label>
     <input type="text" id="point3" v-model="point3" placeholder="Введите подзаголовок...">
 
-    <label for="point4"></label>
+    <label for="point4">подзаголовок</label>
     <input type="text" id="point4" v-model="point4" placeholder="Введите подзаголовок...">
 
-    <label for="point5"></label>
+    <label for="point5">подзаголовок</label>
     <input type="text" id="point5" v-model="point5" placeholder="Введите подзаголовок...">
 
 <button type="submit" value="Submit">Создать</button>
@@ -95,6 +95,9 @@ Vue.component("list", {
         onSubmit() {
             this.errors = [];
             this.points = [];
+            // this.name = []
+
+            // if (this.name) this.name.push([this.name, false]);
         
             if (this.point1) this.points.push([this.point1, false]);
             if (this.point2) this.points.push([this.point2, false]);
