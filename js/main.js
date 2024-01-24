@@ -107,13 +107,11 @@ Vue.component("list", {
             if (this.FirstColumn.length >= 3) this.errors.push("Лимит");
             if (this.blockOne) this.errors.push("Лимит");
 
-            if (this.point1 && this.point2 && this.point3 && this.point4 && this.point5) {
-                const pointNames = [this.point1, this.point2, this.point3, this.point4, this.point5];
+            const pointNames = [this.point1, this.point2, this.point3, this.point4, this.point5];
             
-                if (new Set(pointNames).size === pointNames.length) {
-                } else {
-                    this.errors.push("Имена должны быть уникальными!")
-                }
+            if (new Set(pointNames).size === pointNames.length) {
+            } else {
+                this.errors.push("Имена должны быть уникальными!")
             }
         
             if (this.errors.length === 0) {
