@@ -107,9 +107,7 @@ Vue.component("list", {
             if (this.FirstColumn.length >= 3) this.errors.push("Лимит");
             if (this.blockOne) this.errors.push("Лимит");
 
-            const pointNames = [this.point1, this.point2, this.point3, this.point4, this.point5];
-            
-            if (new Set(pointNames).size === pointNames.length) {
+            if (new Set(this.points).size === this.points.length) {
             } else {
                 this.errors.push("Имена должны быть уникальными!")
             }
